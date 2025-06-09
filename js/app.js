@@ -43,9 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
             welcomeOverlay.className = 'welcome-overlay';
             welcomeOverlay.innerHTML = `
                 <div class="welcome-content">
-                <h2>Benvenuto nel Toolkit sull'Etica dell'Intelligenza Artificiale</h2>
-                <p>Esplora i concetti chiave dell'etica dell'IA attraverso visualizzazioni interattive.</p>
-                <p>Seleziona un capitolo dal menu a sinistra per iniziare il tuo viaggio.</p>
+                <h2>Benvenuto nel Toolkit sull’Etica dell’Intelligenza Artificiale</h2>
+                <p>Non è solo un insieme di concetti, ma un invito a esplorare con mente aperta e spirito critico un tema che plasma il nostro futuro: l’etica dell’intelligenza artificiale. Qui si intrecciano responsabilità, visioni speculative e dilemmi concreti, per capire non solo cosa può fare l’IA, ma cosa dovrebbe fare.
+
+Questo toolkit nasce dalla sinergia tra Relatronica, progetto del ricercatore del CERN Giuseppe Aceto, esperto di etica dell’IA e speculative design, e Bacan, unendo rigore scientifico, creatività e innovazione.
+
+Attraverso visualizzazioni interattive ti guideremo nei territori complessi e affascinanti dove tecnologia e umanità si incontrano, si scontrano e si riscrivono.</p>
+                
                 <button id="welcome-close" class="primary-button">Inizia</button>
                 </div>  
             `;
@@ -309,6 +313,8 @@ document.addEventListener('DOMContentLoaded', () => {
  * Create chapter cards from data with staggered animation
  * @param {Array} chapters - Array of chapter objects
  */
+
+
 function createChapterCards(chapters) {
     chapterCards.innerHTML = '';
 
@@ -332,7 +338,7 @@ function createChapterCards(chapters) {
         const description = document.createElement('p');
         description.textContent = chapter.intro;
 
-        card.append(icon, title, description);
+        card.append(icon, title, description,);
 
         card.addEventListener('click', () => {
             selectChapter(chapter);
@@ -376,18 +382,26 @@ function createChapterCards(chapters) {
         // Update visualization info with fade animation
         visualizationInfo.classList.add('fade-out');
         
-        setTimeout(() => {
-            visualizationInfo.innerHTML = `
-                <h3>${chapter.title}</h3>
-                <p>${chapter.description}</p>
-            `;
-            visualizationInfo.classList.remove('fade-out');
-            visualizationInfo.classList.add('fade-in');
-            
             setTimeout(() => {
-                visualizationInfo.classList.remove('fade-in');
-            }, 500);
-        }, 300);
+        visualizationInfo.innerHTML = `
+            <div class="visualization-content">
+                <div class="visualization-image-container">
+                    ${chapter.image ? `<img src="${chapter.image}" alt="${chapter.title} image" class="visualization-image" />` : ''}
+                </div>
+                <div class="visualization-text">
+                    <h3>${chapter.title}</h3>
+                    <p>${chapter.description}</p>
+                </div>
+            </div>
+        `;
+        visualizationInfo.classList.remove('fade-out');
+        visualizationInfo.classList.add('fade-in');
+
+        setTimeout(() => {
+            visualizationInfo.classList.remove('fade-in');
+        }, 500);
+    }, 300);
+
 
         // Funzione ricorsiva per appiattire concepts + subconcepts
         function flattenConcepts(concepts) {

@@ -801,3 +801,27 @@ body, button, .drawer, .main-content, .visualization, .chapter-card {
   transition: color var(--transition-medium);
   font-size: 15px !important;
 }
+
+.visualization-content {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.visualization-image-container {
+  flex-shrink: 0;
+  width: 30%; /* o la dimensione che preferisci */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.visualization-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.visualization-text {
+  flex: 1;
+}
