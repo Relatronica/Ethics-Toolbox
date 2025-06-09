@@ -110,12 +110,8 @@
                 {
                   "id": "suno",
                   "name": "Suno",
-                  "description": "Suno è una piattaforma di intelligenza artificiale che permette di creare canzoni complete partendo da una semplice descrizione testuale. Basta scrivere poche righe – come un'idea, un'emozione o uno stile musicale – e Suno genera melodie, testi e arrangiamenti in pochi secondi. È uno strumento pensato per musicisti, creativi e curiosi che vogliono esplorare nuovi modi di comporre, sperimentare o semplicemente divertirsi con la musica, aprendo scenari inediti per la creatività accessibile a tutti.",                  "connections": ["tecnologie_attuali"]
-                },
-                 {
-                  "id": "suno",
-                  "name": "Suno",
-                  "description": "Suno è una piattaforma di intelligenza artificiale che permette di creare canzoni complete partendo da una semplice descrizione testuale. Basta scrivere poche righe – come un'idea, un'emozione o uno stile musicale – e Suno genera melodie, testi e arrangiamenti in pochi secondi. È uno strumento pensato per musicisti, creativi e curiosi che vogliono esplorare nuovi modi di comporre, sperimentare o semplicemente divertirsi con la musica, aprendo scenari inediti per la creatività accessibile a tutti.",                  "connections": ["tecnologie_attuali"]
+                  "description": "Suno è una piattaforma di intelligenza artificiale che permette di creare canzoni complete partendo da una semplice descrizione testuale. Basta scrivere poche righe – come un'idea, un'emozione o uno stile musicale – e Suno genera melodie, testi e arrangiamenti in pochi secondi. È uno strumento pensato per musicisti, creativi e curiosi che vogliono esplorare nuovi modi di comporre, sperimentare o semplicemente divertirsi con la musica, aprendo scenari inediti per la creatività accessibile a tutti.",
+                  "connections": ["tecnologie_attuali"]
                 }
                 ]
         },
