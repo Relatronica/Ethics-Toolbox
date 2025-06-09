@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Ethics Toolkit</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Meta description for SEO -->
+    <meta name="description" content="AI Ethics Toolkit - Interactive visualization of AI ethics concepts and principles">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="js/app.js" as="script">
+    <link rel="preload" href="js/visualization.js" as="script">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Drawer Navigation -->
+        <aside class="drawer" id="drawer">
+
+
+            <div class="drawer-header">
+                <!-- Contenitore loghi -->
+                <div class="drawer-logos">
+                    <img src="images/logo2.png" alt="Logo 1" class="logo" />
+                </div>
+
+                <!-- Titolo -->
+                <h1 class="titlewebsite">Music & AI Ethics Toolkit</h1>
+
+                <!-- Pulsante mobile -->
+                <button class="drawer-toggle-mobile" id="drawer-close" aria-label="Close drawer">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <!-- Versione -->
+                <div class="drawer-version">v1.0.0 – June 2025 by Relatronica</div>
+                </div>
+
+
+            
+            <div class="drawer-content">
+                <div class="chapter-cards" id="chapter-cards">
+                    <!-- Chapter cards will be dynamically loaded here -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <button class="drawer-toggle" id="drawer-toggle" aria-label="Open drawer">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="header-title">
+                    <h2 id="current-chapter">AI Ethics Concepts</h2>
+                </div>
+                <div class="theme-toggle">
+                    <button id="theme-toggle-btn" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="visualization-container">
+                <div id="visualization" class="visualization" aria-label="Interactive visualization of AI ethics concepts">
+                    <!-- D3.js visualization will be rendered here -->
+                </div>
+                <div class="visualization-info" id="visualization-info">
+                    <h3>Seleziona un capitolo per iniziare ad esplorare</h3>
+                    <p>La rappresentazione mostra le connessioni tra i concetti che riguardano il mondo dell'IA. Fai clic sui nodi per visualizzare i dettagli di ciascun concetto e delle sue relazioni.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="lib/d3/d3.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/visualization.js"></script>
+</body>
+</html>
