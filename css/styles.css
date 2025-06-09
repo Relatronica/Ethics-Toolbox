@@ -810,9 +810,10 @@ body, button, .drawer, .main-content, .visualization, .chapter-card {
 
 .visualization-image-container {
   flex-shrink: 0;
-  width: 30%; /* o la dimensione che preferisci */
+  width: 300px; /* o la dimensione che preferisci */
   overflow: hidden;
   border-radius: 8px;
+  margin-right: 10px;
 }
 
 .visualization-image {
