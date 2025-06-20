@@ -1,85 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Ethics Toolkit</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Meta description for SEO -->
-    <meta name="description" content="AI Ethics Toolkit - Interactive visualization of AI ethics concepts and principles">
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
-    <!-- Preload critical assets -->
-    <link rel="preload" href="js/app.js" as="script">
-    <link rel="preload" href="js/visualization.js" as="script">
+    <meta name="description" content="Progetto interattivo che esplora la relazione tra creatività umana, intelligenza artificiale e diritto d'autore nella musica">
+    <meta name="keywords" content="musica, AI, creatività, copyright, diritti d'autore, intelligenza artificiale">
+    <meta name="author" content="Progetto Musica AI">
+    <title>Musica, Creatività e AI - Progetto Interattivo</title>
+    
+    <!-- CSS Principale -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Librerie Esterne -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.8.39/build/Tone.js"></script>
 </head>
 <body>
+    <!-- Container Principale -->
     <div class="app-container">
-        <!-- Left Drawer Navigation -->
+        
+        <!-- Drawer Laterale -->
         <aside class="drawer" id="drawer">
-
-
             <div class="drawer-header">
-                <!-- Contenitore loghi -->
-                <div class="drawer-logos">
-                    <img src="images/logo2.png" alt="Logo 1" class="logo" />
-                </div>
-
-                <!-- Titolo -->
-                <h1 class="titlewebsite">Music & AI Ethics Toolkit</h1>
-
-                <!-- Pulsante mobile -->
-                <button class="drawer-toggle-mobile" id="drawer-close" aria-label="Close drawer">
-                    <i class="fas fa-times"></i>
-                </button>
-
-                <!-- Versione -->
-                <div class="drawer-version">v1.0.0 – June 2025 by Relatronica</div>
-                </div>
-
+             <img src="assets/logo/logo2.png" alt="Logo Bacan" class="drawer-logo" />
+            <h1>Sinfonie Artificiali</h1>
+            <p class="drawer-subtitle">Un viaggio tra ispirazione umana e algoritmi, dove la musica incontra l’intelligenza artificiale e riscrive le regole della creatività.</p>
+            <div class="drawer-meta">
+                <p>Design with love by Relatronica – Versione 1.0</p>
+            </div>
+        </div>
 
             
+            
             <div class="drawer-content">
-                <div class="chapter-cards" id="chapter-cards">
-                    <!-- Chapter cards will be dynamically loaded here -->
+                         <div class="section">
+                        <h3>Il progetto</h3>
+                        <div class="info-text">
+                            <p>
+                                Questo progetto nasce dalla collaborazione tra <strong>Bacan</strong> e <strong>Relatronica</strong>, due realtà che condividono la visione di un futuro in cui arte, tecnologia e pensiero critico si intrecciano per generare nuove prospettive.
+                            </p>
+                            <p>
+                                L’obiettivo è stimolare riflessioni, confronti e dialoghi su temi sempre più centrali nel nostro tempo, come la relazione tra creatività umana, intelligenza artificiale generativa e diritto d’autore musicale — il tutto in una cornice esperienziale e interattiva.
+                            </p>
+                            <p>
+                                Clicca sui nodi per esplorare le connessioni, segui i percorsi tra idee, autori, algoritmi e suoni. Usa il sequencer per creare ritmi e lascia che la tua esplorazione diventi parte della narrazione.
+                            </p>
+                            <p>
+                                Un invito a pensare con le mani, a giocare con i concetti, a lasciarsi ispirare da un grafo che è tanto mappa quanto strumento creativo.
+                            </p>
+                        </div>
+                    </div>
+
+                        <div class="section">
+                    <h3>Explora i temi</h3>
+                    <div class="filter-controls">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="showPrimary" checked>
+                            <span class="checkmark"></span>
+                            Temi Principali
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="showSecondary" checked>
+                            <span class="checkmark"></span>
+                            Temi Secondari
+                        </label>
+                    </div>
                 </div>
+
+
+                <div class="section">
+
+                    <h3>Controlli</h3>
+                    <div class="controls">
+                        <button id="resetGraph" class="btn-primary">Reset Vista</button>
+                        <button id="centerGraph" class="btn-secondary">Centra Grafo</button>
+                        <div class="slider-container">
+                            <label for="forceStrength">Forza Collegamenti:</label>
+                            <input type="range" id="forceStrength" min="0.1" max="2" step="0.1" value="1">
+                        </div>
+                    </div>
+                </div>
+                
+            
+                
+          
             </div>
         </aside>
-
-        <!-- Main Content Area -->
+        
+        <!-- Area Principale -->
         <main class="main-content">
-            <header class="main-header">
-                <button class="drawer-toggle" id="drawer-toggle" aria-label="Open drawer">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="header-title">
-                    <h2 id="current-chapter">AI Ethics Concepts</h2>
-                </div>
-                <div class="theme-toggle">
-                    <button id="theme-toggle-btn" aria-label="Toggle dark mode">
-                        <i class="fas fa-moon"></i>
-                        <i class="fas fa-sun"></i>
-                    </button>
-                </div>
-            </header>
+            
+            <!-- Canvas per il Grafo D3.js -->
+            <section class="graph-container">
+                <div id="graph-canvas" class="graph-canvas"></div>
+            </section>
+            
+              <!-- Riga con Info Box e Sequencer affiancati -->
+  <div class="bottom-row">
 
-            <div class="visualization-container">
-                <div id="visualization" class="visualization" aria-label="Interactive visualization of AI ethics concepts">
-                    <!-- D3.js visualization will be rendered here -->
-                </div>
-                <div class="visualization-info" id="visualization-info">
-                    <h3>Seleziona un capitolo per iniziare ad esplorare</h3>
-                    <p>La rappresentazione mostra le connessioni tra i concetti che riguardano il mondo dell'IA. Fai clic sui nodi per visualizzare i dettagli di ciascun concetto e delle sue relazioni.</p>
-                </div>
-            </div>
-        </main>
-    </div>
+    <section class="sequencer-container">
+      <h3 class="titlesequencer">The Bacan-quencer</h3>
+       <p class="version-info">v1.0.0</p> 
+      <p class="sequencer-description">
+    Un sequencer per tutti: crea la tua colonna sonora mentre esplori la nostra mappa!  
+    Ti presentiamo <strong>Bacan-queser</strong> 🎵🗺️
+  </p>
 
-    <!-- Scripts -->
-    <script src="lib/d3/d3.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/visualization.js"></script>
+      <!-- Step Sequencer -->
+     
+      <div class="sequencer-header">
+        <div class="sequencer-controls">
+          <button id="playSequencer" class="btn-play">Play</button>
+          <button id="stopSequencer" class="btn-stop">Stop</button>
+          <button id="clearSequencer" class="btn-clear">Clear</button>
+          <div class="tempo-control">
+            <label for="tempoSlider">BPM:</label>
+            <input type="range" id="tempoSlider" min="60" max="180" value="120">
+            <span id="tempoValue">120</span>
+          </div>
+        </div>
+      </div>
+      <div id="sequencer-grid" class="sequencer-grid"></div>
+    </section>
+
+    <!-- Box Informativo -->
+    <aside class="info-box" id="infoBox">
+      <div class="info-box-header">
+        <h4>Curiosità</h4>
+        <button id="nextFact" class="btn-next">→</button>
+      </div>
+      <div class="info-box-content">
+        <h5 id="factTitle">Caricamento...</h5>
+        <p id="factDescription">Preparazione delle curiosità musicali...</p>
+      </div>
+    </aside>
+
+
+    
+  </div>
+    
+    <!-- Script Modulari -->
+    <script src="js/graphData.js"></script>
+    <script src="js/musicFacts.js"></script>
+    <script src="js/graph.js"></script>
+    <script src="js/sequencer.js"></script>
+    <script src="js/drawer.js"></script>
+    <script src="js/infoBox.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
